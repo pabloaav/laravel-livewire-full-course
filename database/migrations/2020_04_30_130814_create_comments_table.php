@@ -20,6 +20,9 @@ class CreateCommentsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('support_ticket_id');
             $table->timestamps();
+            //Los dos id que tiene un objeto son foreing keys
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('support_ticket_id')->references('id')->on('support_tickets_id');
         });
     }
 
